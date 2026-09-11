@@ -667,15 +667,16 @@
   // (e.g. https://yourdomain.com/downloads/Tadhakkar.apk).
 </script>
 
-// The following script adds a shadow to the nav bar when the user scrolls down, and removes it when they scroll back up. This is purely visual, and does not affect the functionality of the nav links.
 <script>
+  // The following script adds a shadow to the nav bar when the user scrolls down, and removes it when they scroll back up. This is purely visual, and does not affect the functionality of the nav links.
 window.addEventListener('scroll', () => {
   document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 20);
 });
 </script>
 
-// The following script adds smooth scrolling behavior to the nav links, and also closes the mobile nav menu when a link is clicked. This is purely visual, and does not affect the functionality of the nav links.
+
 <script>
+  // The following script adds smooth scrolling behavior to the nav links, and also closes the mobile nav menu when a link is clicked. This is purely visual, and does not affect the functionality of the nav links.
 document.querySelectorAll('[data-scroll-to]').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
@@ -685,8 +686,9 @@ document.querySelectorAll('[data-scroll-to]').forEach(link => {
 });
 </script>
 
-// The following script adds a "reveal" animation to elements with the class "reveal" when they enter the viewport. This is purely visual, and does not affect the functionality of the page.
+
 <script>
+  // The following script adds a "reveal" animation to elements with the class "reveal" when they enter the viewport. This is purely visual, and does not affect the functionality of the page.
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) entry.target.classList.add('visible');
