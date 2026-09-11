@@ -249,6 +249,15 @@
     font-size: 15.5px;
   }
 
+  /* ---------- FEATURE CARD HOVER EFFECT ---------- */
+  .feature {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .feature:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+  }
+
   /* ---------- FEATURES ---------- */
   .features { padding: 88px 0; }
   .feature-grid {
@@ -400,6 +409,34 @@
     color: rgba(255,255,255,0.7);
     line-height: 1.7;
     position: relative;
+  }
+
+  .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- FLOATING PHONE ANIMATION -> Hero phone mockup gentle float ---------- */
+  @keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  }
+  .hero-visual .phone {
+    animation: float 4s ease-in-out infinite;
+  }
+  .phone.phone-secondary {
+    animation-delay: -2s;
+  }
+
+  /* ---------- SCROLLED NAV -> Nav bar shadow on scroll ---------- */
+  nav.scrolled {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: box-shadow 0.3s ease;
   }
 
   /* ---------- FOOTER ---------- */
@@ -628,6 +665,34 @@
   // ignore the `download` attribute and just open a webpage instead - so
   // when you host the real APK, link directly to the file itself
   // (e.g. https://yourdomain.com/downloads/Tadhakkar.apk).
+</script>
+
+// The following script adds a shadow to the nav bar when the user scrolls down, and removes it when they scroll back up. This is purely visual, and does not affect the functionality of the nav links.
+<script>
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>
+
+// The following script adds smooth scrolling behavior to the nav links, and also closes the mobile nav menu when a link is clicked. This is purely visual, and does not affect the functionality of the nav links.
+<script>
+document.querySelectorAll('[data-scroll-to]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById(link.dataset.scrollTo)?.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector('.nav-links')?.classList.remove('open');
+  });
+});
+</script>
+
+// The following script adds a "reveal" animation to elements with the class "reveal" when they enter the viewport. This is purely visual, and does not affect the functionality of the page.
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 <footer>
