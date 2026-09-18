@@ -456,34 +456,15 @@
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   transition: box-shadow 0.3s ease;
   }
-  /* ---------- REVEAL ANIMATION -> Elements fade in and slide up when they enter the viewport ---------- */
-  .step {
-  opacity: 0;
-  transform: translateX(-20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-  .step.visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  
 
-  .download-card {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .download-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(15,110,92,0.4); }
-    50% { box-shadow: 0 0 0 10px rgba(15,110,92,0); }
-  }
-  .btn-primary {
-    animation: pulse 2.5s ease-in-out infinite;
-  }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(15,110,92,0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(15,110,92,0); }
+}
+.btn-primary {
+  animation: pulse 2.5s ease-in-out infinite;
+}
 
   /* ---------- FOOTER ---------- */
   footer {
